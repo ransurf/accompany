@@ -1,0 +1,43 @@
+.links {  /*div links*/
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 22px;
+    width: 100%;
+    padding-top: 15px;
+}
+
+.link {   /*links in div links*/
+    text-decoration: none;
+    color: #0072BC;
+    font-size: 22px;
+    transition: transform 0.2s;
+}
+
+.link:hover {
+    transform: scale(
+      1.1
+    );
+}
+.container {     /*header container*/
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.header {      /*header? pls clarify*/
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    gap: 10px;
+    
+}
+
+.content {
+    width: 100%;
+    background-color: white;
+}
