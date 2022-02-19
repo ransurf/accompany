@@ -9,7 +9,7 @@ import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import GradeIcon from '@mui/icons-material/Grade';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 
-export default function AdviceCard() {
+export default function AdviceCard(props) {
   const theme = useTheme();
 
   return (
@@ -20,7 +20,7 @@ export default function AdviceCard() {
             Meditation
           </Typography>
           <Typography variant="subtitle1" color="text.secondary" component="div">
-            Meditate for 30 minutes a day.
+            {props.quote}
           </Typography>
         </CardContent>
         <Box sx={{ display: 'flex', alignItems: 'center', pl: 1, pb: 1 }}>

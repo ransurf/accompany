@@ -18,16 +18,32 @@ const getUserQoutes = async (userUID) => {
 
 const getAllQuotes = async () => {
   let allQuotes = [];
-  await getDocs(collection(db, `aggregated/Quotes`))
-    .then((snapshot) => {
-      snapshot.forEach((doc) => {
-        allQuotes.push(doc.data());
-      });
-    })
-    .catch((error) => {
-      console.log(error);
-    });
+  const docRef = doc(db, "aggregated", "Quotes");
+  const docSnap = await getDoc(docRef);
+
+  if (docSnap.exists()) {
+    console.log("Document data:", docSnap.data());
+    for (let key in docSnap.data()) {
+      allQuotes.push(docSnap.data()[key]);
+    }
+  } else {
+    // doc.data() will be undefined in this case
+    console.log("No such document!");
+  }
   return allQuotes;
+  
+  // let allQuotes = [];
+  // const docRef = doc(db, "aggregated", "Quotes")
+  // const docSnap = await getDoc(docRef)
+  // .then((snapshot) => {
+  //     snapshot.forEach((doc) => {
+  //       allQuotes.push(doc.data());
+  //     });
+  //   })
+  //   .catch((error) => {
+  //     console.log(error);
+  //   });
+  // return allQuotes;
 };
 
 const getUserProfile = async (userUID) => {

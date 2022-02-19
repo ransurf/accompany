@@ -33,7 +33,7 @@ const getUserQoutes = async (userUID) => {
 };
 
 const getAllQuotes = async () => {
-  const data = Read.getAllQuotes();
+  const data = await Read.getAllQuotes();
   return data;
 };
 
