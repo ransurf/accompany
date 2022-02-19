@@ -1,7 +1,6 @@
 import * as Auth from "./firestore/Auth.js";
 import * as Create from "./firestore/create.js";
 import * as Read from "./firestore/read.js";
-// All functions that front-end will call (Keep it simple)
 const signUp = async (
   email,
   password,
