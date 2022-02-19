@@ -4,19 +4,15 @@ import * as Read from "./firestore/read.js";
 const signUp = async (
   email,
   password,
-  username,
   name,
   intro,
-  goals,
   cityLocation
 ) => {
   const user = await Auth.signUpUser(
     email,
     password,
-    username,
     name,
     intro,
-    goals,
     cityLocation
   );
   return user;
