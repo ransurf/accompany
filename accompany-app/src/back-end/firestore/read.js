@@ -30,7 +30,7 @@ const getAllQuotes = async () => {
   return allQuotes;
 };
 
-const getUserInformation = async (userUID) => {
+const getUserProfile = async (userUID) => {
   let userInformation = {};
   await getDoc(doc(db, `Users/${userUID}/Information/Profile`))
     .then((doc) => {
@@ -46,4 +46,4 @@ const serverError = (errorCode, errorMessage) => {
   return { errorCode: errorCode, errorMessage: errorMessage };
 };
 
-export { getUserQoutes, getUserInformation, getAllQuotes };
+export { getUserQoutes, getUserProfile, getAllQuotes };

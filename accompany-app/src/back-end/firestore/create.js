@@ -33,11 +33,11 @@ const createUserDocument = async (
 };
 
 const addQuote = async (user, quote) => {
-  const qouteName;
+  const quoteName = "";
   await addDoc(doc, `Users/${user.uid}/Quotes`, {
     quote: quote,
   }).then((docRef) => {
-    qouteName = docRef.id;
+    quoteName = docRef.id;
   });
 
   await addQuoteToCollection(user, quote, quoteName);
