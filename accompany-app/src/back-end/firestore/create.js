@@ -20,7 +20,7 @@ const createUserDocument = async (
   );
 
   await setDoc(
-    doc(db, `Users/${user.uid}/Profile`),
+    doc(db, `Users/${user.uid}/Information/Profile`),
     {
       miniIntro: intro,
       goals: goals,
@@ -28,6 +28,25 @@ const createUserDocument = async (
     },
     { merge: true }
   );
+
+  //await setDoc(doc(db, `Users/${user.uid}/Quotes`), {}, { merge: true });
 };
 
-export { createUserDocument };
+const addQuote = async (user, quote) => {
+  const qouteName;
+  await addDoc(doc, `Users/${user.uid}/Quotes`, {
+    quote: quote,
+  }).then((docRef) => {
+    qouteName = docRef.id;
+  });
+
+  await addQuoteToCollection(user, quote, quoteName);
+};
+
+const addQuoteToCollection = async (user, quote, quoteName) => {
+  await addDoc(doc, `aggregated/Quotes`, {
+    [quoteName]: quote,
+  });
+};
+
+export { createUserDocument, addQuote, addQuoteToCollection };
