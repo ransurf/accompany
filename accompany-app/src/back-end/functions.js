@@ -1,4 +1,4 @@
-import * as Auth from "./firebase-files/Auth";
+import * as Auth from "./firestore/Auth";
 
 // All functions that front-end will call (Keep it simple)
 const signUp = async (email, password, username, name) => {
