@@ -35,4 +35,8 @@ const signIn = async (email, password) => {
   return user;
 };
 
-export { signIn, signUpUser };
+const signOut = async () => {
+  await auth.signOut();
+};
+
+export { signIn, signUpUser, signOut };
