@@ -10,7 +10,7 @@ const signUp = async (
   goals,
   cityLocation
 ) => {
-  const user = await Auth.signUpProfessor(
+  const user = await Auth.signUpUser(
     email,
     password,
     username,
