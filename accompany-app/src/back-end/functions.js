@@ -23,6 +23,10 @@ const signIn = async (email, password) => {
   return user;
 };
 
+const signOut = async () => {
+  await Auth.signOut();
+};
+
 const addQuote = async (user, quote) => {
   await Create.addQuote(user, quote);
 };
@@ -46,6 +50,7 @@ const getUserProfile = async (userUID) => {
 export {
   signUp,
   signIn,
+  signOut,
   addQuote,
   getUserQoutes,
   getUserProfile,
