@@ -14,8 +14,6 @@ const styles = {
         gridAutoRows: '10px',
         position: 'absolute',
         right: '0%',
-        // transform: 'translateX(-25%)',
-        // transform: 'translateY(0)',
         justifyContent: 'center',
         backgroundColor: '#d9fcf8',
         borderRadius: "5%",

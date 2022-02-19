@@ -27,7 +27,7 @@ function QuotesCards(props) {
     <div style={{
       ...styles.card,
       ...styles[props.size]
-    }}>QuotesCards</div>
+    }}>Test1</div>
   )
 }
 
