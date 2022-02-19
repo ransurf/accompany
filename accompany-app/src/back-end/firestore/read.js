@@ -31,7 +31,7 @@ const getAllQuotes = async () => {
     console.log("No such document!");
   }
   return allQuotes;
-  
+
   // let allQuotes = [];
   // const docRef = doc(db, "aggregated", "Quotes")
   // const docSnap = await getDoc(docRef)
