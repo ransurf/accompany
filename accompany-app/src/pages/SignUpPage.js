@@ -43,8 +43,8 @@ export default function SignUpPage() {
       formParams.email,
       formParams.password,
       formParams.name,
-      formParams.location,
-      formParams.bio
+      formParams.bio,
+      formParams.location
     );
     if (!request) {
       console.log("Signup Failed!");

@@ -3,17 +3,14 @@ import { doc, setDoc, addDoc, updateDoc } from "firebase/firestore";
 
 const createUserDocument = async (
   user,
-  userUsername,
   userName,
   intro,
-  goals,
   cityLocation
 ) => {
   await setDoc(
     doc(db, `Users/${user.uid}`),
     {
       email: user.email,
-      username: userUsername,
       name: userName,
     },
     { merge: true }
@@ -23,7 +20,6 @@ const createUserDocument = async (
     doc(db, `Users/${user.uid}/Information/Profile`),
     {
       miniIntro: intro,
-      goals: goals,
       location: cityLocation,
     },
     { merge: true }
