@@ -1,12 +1,11 @@
 import './App.css';
-import AdviceCards from './AdviceCard';
+import AdviceCards from './components/AdviceCard';
 import PageHeader from './components/PageHeader';
 
 function App() {
   return (
-    <div>
-      <PageHeader/>
-      <AdviceCards/>
+    <div className="flex-container">
+        <PageHeader/>
     </div>
   );
 }

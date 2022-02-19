@@ -4,15 +4,15 @@ import {
   Paper,
   TextField,
   Button,
-} from "@material-ui/core";
+} from "@mui/material";
 import * as APIFirebase from "../back-end/functions";
 import { setSessionCookie } from "../session";
 
 export default function SignUpPage() {
   const [formParams, setFormParams] = React.useState({
     name: "",
-    title: "",
-    description: "",
+    location: "",
+    bio: "",
     email: "",
     password: "",
   });
@@ -28,11 +28,11 @@ export default function SignUpPage() {
       case "name":
         setFormParams({ ...formParams, name: e.target.value });
         break;
-      case "title":
-        setFormParams({ ...formParams, title: e.target.value });
+      case "location":
+        setFormParams({ ...formParams, location: e.target.value });
         break;
-      case "description":
-        setFormParams({ ...formParams, description: e.target.value });
+      case "bio":
+        setFormParams({ ...formParams, bio: e.target.value });
         break;
     }
   };
@@ -43,8 +43,8 @@ export default function SignUpPage() {
       formParams.email,
       formParams.password,
       formParams.name,
-      formParams.title,
-      formParams.description
+      formParams.location,
+      formParams.bio
     );
     if (!request) {
       console.log("Signup Failed!");
@@ -92,16 +92,16 @@ export default function SignUpPage() {
             required
           />
           <TextField
-            onChange={(e) => onHandleChange(e, "title")}
-            label="Title"
-            placeholder="Enter title"
+            onChange={(e) => onHandleChange(e, "location")}
+            label="location"
+            placeholder="Enter location"
             fullWidth
             required
           />
           <TextField
-            onChange={(e) => onHandleChange(e, "description")}
-            label="Description"
-            placeholder="Enter description"
+            onChange={(e) => onHandleChange(e, "bio")}
+            label="bio"
+            placeholder="Enter bio"
             fullWidth
             required
           />

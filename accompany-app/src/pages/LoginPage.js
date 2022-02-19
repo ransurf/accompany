@@ -1,13 +1,12 @@
 import React from "react";
-// import * as APIFirebase from "../back-end/functions"; AUTH
+import * as APIFirebase from "../back-end/functions"; 
 import {
   Grid,
   Paper,
-  Avatar,
   TextField,
   Button,
   Typography,
-} from "@material-ui/core";
+} from "@mui/material";
 
 import { Link } from "react-router-dom";
 import { setSessionCookie } from "../session";
