@@ -1,13 +1,30 @@
 import { db } from "./firebase.js";
 import { doc, setDoc, addDoc, updateDoc } from "firebase/firestore";
 
-const createUserDocument = async (user, userUsername, userName) => {
+const createUserDocument = async (
+  user,
+  userUsername,
+  userName,
+  intro,
+  goals,
+  cityLocation
+) => {
   await setDoc(
     doc(db, `Users/${user.uid}`),
     {
       email: user.email,
       username: userUsername,
       name: userName,
+    },
+    { merge: true }
+  );
+
+  await setDoc(
+    doc(db, `Users/${user.uid}/Profile`),
+    {
+      miniIntro: intro,
+      goals: goals,
+      location: cityLocation,
     },
     { merge: true }
   );
