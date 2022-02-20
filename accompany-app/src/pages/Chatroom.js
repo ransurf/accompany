@@ -52,7 +52,7 @@ function Chatroom() {
 
   return (
     <>
-      <div>
+      <div className="chatroom-container">
         {messages &&
           messages.map((msg) => <ChatMessage key={msg.id} message={msg} />)}
         <form onSubmit={sendMessage} className="form">
@@ -77,11 +77,13 @@ function ChatMessage(props) {
   const messageClass = uid === auth.currentUser.uid ? "sent" : "received";
 
   return (
-    <div className={`message ${messageClass}`}>
-      <img src="https://picsum.photos/200/300" />
-      <p>{text}</p>
-      <p>-</p>
-      <p>{name}</p>
+    <div className="message-container">
+      <div className={`message ${messageClass}`}>
+        <img src="https://picsum.photos/200/300" />
+        <div className={`${messageClass}`}>
+          <p>{text}</p>
+        </div>
+      </div>
     </div>
   );
 }
