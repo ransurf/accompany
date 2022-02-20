@@ -78,9 +78,11 @@ function ChatMessage(props) {
 
   return (
     <div className="message-container">
+      
       <div className={`message ${messageClass}`}>
+        {/* <span>{name}</span> */}
         <img src="https://picsum.photos/200/300" />
-        <div className={`${messageClass}`}>
+        <div>
           <p>{text}</p>
         </div>
       </div>

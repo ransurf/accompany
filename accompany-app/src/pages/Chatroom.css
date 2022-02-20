@@ -89,6 +89,9 @@
     text-align: center;
 }
 
+.message-container {
+    
+}
 
 .message {
     display: flex;

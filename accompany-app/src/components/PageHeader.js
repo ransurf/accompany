@@ -34,9 +34,9 @@ function PageHeader() {
                 <Link className="link" to="/chatroom">
                   ChatRoom
                 </Link>
-                <button className="logOut" onClick={signOutAndRedirect}>
-                  LogOut
-                </button>
+                <Link className="link" to="/home" onClick={signOutAndRedirect}>
+                  Logout
+                </Link>
               </>
             ) : (
               <Link className="link" to="/login">
