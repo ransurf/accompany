@@ -1,5 +1,7 @@
 import React from 'react'
-import { TextField, Container, Button, ButtonGroup, Typography, Box, makeStyles } from '@mui/material'
+import { TextField, Container, Button, ButtonGroup, Typography, Box, FormLabel, FormControl } from '@mui/material'
+// import { makeStyles } from '@mui/styles';
+import QuotesCards from '../components/QuotesCards';
 import SearchIcon from '@mui/icons-material/Search';
 import { useState } from 'react'
 
@@ -12,30 +14,55 @@ import './QuotesPage.css'
 import { ClassNames } from '@emotion/react';
 
 
-function QuotesPage() {
+// const useStyles = makeStyles({
+//     field: {
+//         marginTop: 20,
+//         marginBottom:20,
+//         display: 'block'
+//     }
+// })
+
+export default function QuotesPage() {
+    // const classes = useStyles()
     const [title, setTitle] = useState('')
     const [details, setDetails] = useState('')
     const [titleError, setTitleError] = useState(false)
     const [detailsError, setDetailsError] = useState(false)
-    
+
     var quote = {}
+    const [quotesNew, setQuotesNew] = useState([])
+    const cardsNew = {};
     // Handling Submit 
     const handleSubmit = (e) => {
         e.preventDefault()
         setTitleError(false)
         setDetailsError(false)
-        if(title == ''){
+        if (title == '') {
             setTitleError(true)
         }
-        if(details == ''){
+        if (details == '') {
             setDetailsError(true)
         }
 
-        if(title && details){
+        if (title && details) {
             // Set this to as a property for Card
-           
-            console.log(title,details)
+
+            console.log(title, details)
+
+            //attempt to make a global stuff -mm
+
+            cardsNew = quotesNew.map((quotesNew) => {
+                return (
+                    <QuotesCards
+                        // key={quotesNew.id}
+                        title={quotesNew.title}
+                        quote={quotesNew.quote}
+                    />
+                )
+            })
+
         }
+        console.log(cardsNew.title)
     }
 
     return (
@@ -57,31 +84,35 @@ function QuotesPage() {
                 <Button type="submit" ><TagIcon /> Tags </Button>
                 <Button type="submit" ><SettingsIcon /> Settings </Button>
             </ButtonGroup>
-           
+
             <br />
             {/* Create new Quote */}
+            {/* <FormControl className={classes.field}> */}
+            <FormLabel>Create a New Quote</FormLabel>
             <form noValidate autoComplete="off" onSubmit={handleSubmit}>
                 <TextField
-                onChange = {(e)=> setTitle(e.target.value)}
+                    onChange={(e) => setTitle(e.target.value)}
                     label="Quote Title"
                     variant="outlined"
                     fullWidth
                     required
-                    error = {titleError} />
-    
+                    error={titleError} />
+
                 <TextField
-                 onChange = {(e)=> setDetails(e.target.value)}
+                    onChange={(e) => setDetails(e.target.value)}
                     label="Quote"
                     variant="outlined"
                     multiline
                     maxRows={5}
                     minRows={3}
                     fullWidth
-                    required 
-                    error ={detailsError}
-                    />
-                    <Button type="submit">Submit</Button>
+                    required
+                    error={detailsError}
+                />
+                <Button type="submit">Submit</Button>
             </form>
+            {/* </FormControl> */}
+
 
 
             <QuotesLayout />
@@ -91,4 +122,3 @@ function QuotesPage() {
     )
 }
 
-export default QuotesPage
