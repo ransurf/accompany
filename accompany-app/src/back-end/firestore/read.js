@@ -58,8 +58,22 @@ const getUserProfile = async (userUID) => {
   return userInformation;
 };
 
+const getAllUserProfiles = async () => {
+  let allUserProfiles = [];
+  await getDocs(collection(db, "Users"))
+    .then((snapshot) => {
+      snapshot.forEach((doc) => {
+        allUserProfiles.push(doc.data());
+      });
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+  return allUserProfiles;
+};
+
 const serverError = (errorCode, errorMessage) => {
   return { errorCode: errorCode, errorMessage: errorMessage };
 };
 
-export { getUserQoutes, getUserProfile, getAllQuotes };
+export { getUserQoutes, getUserProfile, getAllQuotes, getAllUserProfiles };

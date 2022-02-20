@@ -50,6 +50,11 @@ const getUserProfile = async (userUID) => {
   return data;
 };
 
+const getAllUserProfiles = async () => {
+  const data = await Read.getAllUserProfiles();
+  return data;
+};
+
 //get user information //video, video title, video description, associated aassignments
 export {
   signUp,
@@ -59,5 +64,6 @@ export {
   addQuoteToCollection,
   getUserQoutes,
   getUserProfile,
+  getAllUserProfiles,
   getAllQuotes,
 };
