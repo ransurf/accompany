@@ -10,44 +10,52 @@ import { signOut } from "../back-end/functions.js";
 import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 import ChatroomApp from "../pages/Chatroom";
 
+function signOutAndRedirect() {
+  signOut();
+  window.location.href = "/";
+}
+
 function PageHeader() {
-    const [user] = useAuthState(auth);
-    return (
-        <div className="container">
-            <Router >
-                <div className="header">
-                    <div className="links">
-                        <Link className="link" to="/home">Home</Link>
-                        <Link className="link" to="/login">Login</Link>
-                        <Link className="link" to="/quotespage">Quotes</Link>
-                        {user ? (
-                            <>
-                                <Link className="link" to="/chatroom">
-                                ChatRoom
-                                </Link>
-                                <button className="logOut" onClick={signOut}>
-                                LogOut
-                                </button>
-                            </>
-                            ) : (
-                            <Link className="link" to="/login">
-                                Login
-                            </Link>
-                            )}
-                    </div>
-                </div>
-                <div className="content">
-                <Routes>
-                    <Route exact path="/home" element={<MainPage/>}/>
-                    <Route path="/login" element={<LoginPage/>}/>
-                    <Route path="/signup" element={<SignUpPage/>}/>
-                    <Route path="/quotespage" element={<QuotesPage/>}/>
-                    <Route path="/chatroom" element={<ChatroomApp />} />
-                    
-                </Routes>
-                </div>
-            </Router>
+  const [user] = useAuthState(auth);
+  return (
+    <div className="container">
+      <Router>
+        <div className="header">
+          <div className="links">
+            <Link className="link" to="/home">
+              Home
+            </Link>
+            {/* <Link className="link" to="/login">Login</Link> */}
+            <Link className="link" to="/quotespage">
+              Quotes
+            </Link>
+            {user ? (
+              <>
+                <Link className="link" to="/chatroom">
+                  ChatRoom
+                </Link>
+                <button className="logOut" onClick={signOutAndRedirect}>
+                  LogOut
+                </button>
+              </>
+            ) : (
+              <Link className="link" to="/login">
+                Login
+              </Link>
+            )}
+          </div>
         </div>
+        <div className="content">
+          <Routes>
+            <Route exact path="/home" element={<MainPage />} />
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/signup" element={<SignUpPage />} />
+            <Route path="/quotespage" element={<QuotesPage />} />
+            <Route path="/chatroom" element={<ChatroomApp />} />
+          </Routes>
+        </div>
+      </Router>
+    </div>
   );
 }
 
