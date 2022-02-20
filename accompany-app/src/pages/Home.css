@@ -1,0 +1,110 @@
+/* fonts declaractions */
+
+@font-face {
+    /* fancy script font for the letter logo */
+    font-family: "Queen Elena";
+    font-weight: normal;
+    src: url("./assets/fonts/Beary - Queen Elena.ttf") format("truetype");
+}
+
+@font-face {
+    /* fancy script font for the letter logo */
+    font-family: "GT Eesti Display";
+    font-weight: 400;
+    src: url("./assets/fonts/GT-Eesti-Display-Regular-Trial.otf") format("opentype");
+}
+
+
+/* initializing stuff */
+
+:root {
+    --color-bg-main: #2F374F;
+    --color-fg-sidebar: #EBEBEE;
+}
+
+html {
+    font-size: 16px;
+}
+
+
+/* main section */
+
+#main-container {
+    display: grid;
+    grid-template-columns: 19.875rem 1fr;
+}
+
+#sidebar {
+    padding: 0 1.33rem 0 1.33rem;
+    background-color: var(--color-bg-main);
+    height: 100vh;
+}
+
+#sidebar > #sidebar-logo {
+    padding: 2rem;
+    font-family: "Queen Elena";
+    font-size: 4rem;
+    letter-spacing: 0.03em;
+    text-align: center;
+    color: white;
+}
+
+#sidebar-items {
+    padding: 1rem;
+    padding-left: 1.3rem;
+}
+
+#sidebar-items > ul {
+    margin: 0;
+    padding: 0;
+    font-family: 'GT Eesti Display';
+    font-weight: 400;
+    font-size: 1.2rem;
+    letter-spacing: 0.02em;
+    list-style-image: none;
+    line-height: 3rem; 
+}
+
+#sidebar-items > ul > li {
+    padding-left: 2.7rem;
+    color: var(--color-fg-sidebar);
+    text-transform: uppercase;
+    background-repeat: no-repeat;
+	background-size: 33px;
+}
+
+#sidebar-items > ul > li:hover {
+    color: var(--color-bg-main);
+    background-color: #9CA4BC;
+    cursor: pointer;
+}
+
+#sidebar-items li.sidebar-items__home {
+    background-position: 0 3px;
+    background-image: url('./assets/img/icons/side-menu__home.png');
+}
+
+#sidebar-items li.sidebar-items__threads {
+    background-position: 0 8px;
+    background-image: url('./assets/img/icons/side-menu__threads.png');
+}
+
+#sidebar-items li.sidebar-items__insights {
+    background-position: 0 7px;
+    background-image: url('./assets/img/icons/side-menu__insights.png');
+}
+
+#sidebar-items li.sidebar-items__habits {
+    background-position: 0 4px;
+    background-image: url('./assets/img/icons/side-menu__habits.png');
+}
+
+#sidebar-items li.sidebar-items__quotes {
+    background-position: 0 11px;
+    background-image: url('./assets/img/icons/side-menu__quotes.png');
+}
+
+#content {
+    background-image: url('./assets/img/bg__home__ocean.jpg');
+    background-size: 100% 100%;
+}

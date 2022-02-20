@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "@mui/styles": "^5.4.2",
-    "firebase": "^9.6.7"
+    "firebase": "^9.6.7",
+    "react-scripts": "^5.0.0"
   }
 }

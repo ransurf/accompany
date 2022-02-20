@@ -4,6 +4,7 @@ import LandingPage from '../pages/LandingPage';
 import LoginPage from '../pages/LoginPage';
 import SignUpPage from '../pages/SignUpPage';
 import QuotesPage from '../pages/QuotesPage';
+import Home from '../pages/Home';
 import './PageHeader.css';
 import { auth } from "../back-end/firestore/firebase.js";
 import { useAuthState } from "react-firebase-hooks/auth";
@@ -57,6 +58,7 @@ function PageHeader() {
           <Routes>
             <Route exact path="/" element={<LandingPage />} />
             <Route exact path="/home" element={<MainPage />} />
+            <Route exact path="/hometest" element={<Home />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/signup" element={<SignUpPage />} />
             <Route path="/quotespage" element={<QuotesPage />} />
