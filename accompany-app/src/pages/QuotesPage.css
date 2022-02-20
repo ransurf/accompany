@@ -1,0 +1,32 @@
+* { box-sizing: border-box }
+
+.Container {
+  border: 1px solid grey;
+  position: relative;
+  width: 200px;
+  height: 200px;
+  float:left;
+  margin-right: 20px;
+  display: flex;
+  font-size: 10px;
+}
+
+.Content {
+  background: lightBlue;
+  padding: 10px;
+  position: relative;
+}
+
+.AppBar {
+  background: lightGreen;
+}
+
+.NavigationDrawer{
+  background: rgba(255,0,0,.25);
+  width: 50px;
+  transition: all 0.2s ease-in-out;
+  &.is-closed{
+    margin-left: -50px;
+    opacity: 0;
+  }
+}

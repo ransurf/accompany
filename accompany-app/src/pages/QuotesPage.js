@@ -1,5 +1,5 @@
 import React from 'react'
-import { TextField, Container, Button, ButtonGroup, Typography, Box, FormLabel, FormControl } from '@mui/material'
+import { TextField, Container, Button, ButtonGroup, Typography, Box, FormLabel, FormControl, textFieldClasses } from '@mui/material'
 // import { makeStyles } from '@mui/styles';
 import QuotesCards from '../components/QuotesCards';
 import SearchIcon from '@mui/icons-material/Search';
@@ -55,83 +55,123 @@ export default function QuotesPage() {
     console.log(cardsNew.title);
   };
 
+  // GETTING THE QUOTES DATA 
+  const [test, setTest] = useState({});
+  const [fetchQuotesError, setfetchQuotesError] = useState(false);
+
+  //   useEffect(() =>
+  //     Quote.getAllQuotes().then((data) => {
+  //       setQuotesNew(data);
+  //     })
+  //       .catch((e) => {
+  //         setfetchQuotesError(true);
+  //       });
+  // }, []);
+  // if (test)
+  //   return (
+  //     <div>
+  //       {tests.map((i) => (
+  //         <span key={i}>{i}</span>
+  //       ))}
+  //     </div>
+  //   );
+  // else if (!quotes && !fetchQuotesError){
+  //   return <span>Fetching.. </span>;
+  // }else{
+  //   return <span>Error</span>;
+  // }
+  // };
+
   return (
     <Container>
-      <Typography
-        variant="h2"
-        color="primary"
-        align="center"
-        gutterBottom
-        display="block"
-      >
-        Your Quotes, name
-      </Typography>
-      {/* <QuotesLayout/> */}
+      <div style="display: flex; flex-direction: row" class="Container" >
+        <div style="flex: 0 0 auto" class="NavigationDrawer" id="nav-2">
+          <Box
+            sx={{
+              display: "flex",
+              alignItems: "flex-end",
+              border: 1,
+              borderRadius: 16
 
-      <Typography display="block">
-        {" "}
-        Discover Collection of your Quotes{" "}
-      </Typography>
+            }}
+          >
+            <SearchIcon sx={{ color: "action.active", mr: 1, my: 0.5 }} />
+            <TextField
+              id="input-with-sx"
+              label="Search"
+              variant="standard"
+              type="search"
+            />
+          </Box>
 
-      <Box
-        sx={{
-          display: "flex",
-          alignItems: "flex-end",
-          border: 1,
-          borderRadius: 16,
-        }}
-      >
-        <SearchIcon sx={{ color: "action.active", mr: 1, my: 0.5 }} />
-        <TextField
-          id="input-with-sx"
-          label="Search"
-          variant="standard"
-          type="search"
-        />
-      </Box>
+          <ButtonGroup color="secondary" onClick={() => console.log("clicked")}>
+            <Button type="submit" >
+              <FavoriteIcon /> Favorite{" "}
+            </Button>
+            <Button type="submit">
+              <TagIcon /> Tags{" "}
+            </Button>
+            <Button type="submit">
+              <SettingsIcon /> Settings{" "}
+            </Button>
+          </ButtonGroup>
 
-      <ButtonGroup color="secondary" onClick={() => console.log("clicked")}>
-        <Button type="submit">
-          <FavoriteIcon /> Favorite{" "}
-        </Button>
-        <Button type="submit">
-          <TagIcon /> Tags{" "}
-        </Button>
-        <Button type="submit">
-          <SettingsIcon /> Settings{" "}
-        </Button>
-      </ButtonGroup>
 
-      <br />
-      {/* Create new Quote */}
-      {/* <FormControl className={classes.field}> */}
-      <FormLabel>Create a New Quote</FormLabel>
-      <form noValidate autoComplete="off" onSubmit={handleSubmit}>
-        <TextField
-          onChange={(e) => setTitle(e.target.value)}
-          label="Quote Title"
-          variant="outlined"
-          fullWidth
-          required
-          error={titleError}
-        />
+          <br />
+          {/* Create new Quote */}
+          {/* <FormControl className={classes.field}> */}
+          <FormLabel className="redbull">Create a New Quote</FormLabel>
+          <form noValidate autoComplete="off" onSubmit={handleSubmit}>
+            <TextField
+              onChange={(e) => setTitle(e.target.value)}
+              label="Quote Title"
+              variant="outlined"
+              fullWidth
+              required
+              error={titleError}
+            />
 
-        <TextField
-          onChange={(e) => setDetails(e.target.value)}
-          label="Quote"
-          variant="outlined"
-          multiline
-          maxRows={5}
-          minRows={3}
-          fullWidth
-          required
-          error={detailsError}
-        />
-        <Button type="submit">Submit</Button>
-      </form>
-      {/* </FormControl> */}
+            <TextField
+              onChange={(e) => setDetails(e.target.value)}
+              label="Quote"
+              variant="outlined"
+              multiline
+              maxRows={5}
+              minRows={3}
+              fullWidth
+              required
+              error={detailsError}
+            />
+            <Button type="submit">Submit</Button>
+          </form>
 
-      <QuotesLayout />
+        </div>
+        <div style="flex: 0 0 25px" class="AppBar">
+          <Typography
+            variant="h2"
+            color="primary"
+            align="center"
+            gutterBottom
+            display="block"
+          >
+            Your Quotes, name
+          </Typography>
+          {/* <QuotesLayout/> */}
+
+          <Typography display="block">
+            {" "}
+            Discover Collection of your Quotes{" "}
+          </Typography>
+          {/* </FormControl> */}
+        </div>
+        <div style="flex: 1 1 auto" class="Content">
+
+          <QuotesLayout />
+
+        </div>
+      </div>
+
+
     </Container>
   );
 }
