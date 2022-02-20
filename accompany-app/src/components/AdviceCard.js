@@ -11,26 +11,37 @@ import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 
 export default function AdviceCard(props) {
   const theme = useTheme();
-
+  const deleteQuote = () => {
+    console.log("deleteQuote")
+    props.deleteQuote(props.quote.id)
+  }
+  const nextQuote = () => {
+    console.log("nextQuote")
+    props.nextQuote()
+  }
+  const favoriteQuote = () => {
+    console.log("favoriteQuote")
+    props.favoriteQuote(props.quote.id)
+  }
   return (
     <Card sx={{ display: 'flex', width: 500}}>
       <Box sx={{ display: 'flex', flexDirection: 'column'}}>
         <CardContent sx={{ flex: '1 0 auto' }}>
           <Typography component="div" variant="h5">
-            Meditation
+            Title
           </Typography>
           <Typography variant="subtitle1" color="text.secondary" component="div">
             {props.quote}
           </Typography>
         </CardContent>
         <Box sx={{ display: 'flex', alignItems: 'center', pl: 1, pb: 1 }}>
-          <IconButton aria-label="previous">
+          <IconButton aria-label="delete" onClick={() => {deleteQuote()}}>
             {theme.direction === 'rtl' ? <GradeIcon /> : <DeleteForeverIcon />}
           </IconButton>
-          <IconButton aria-label="play/pause">
+          <IconButton aria-label="next" onClick={() => {nextQuote()}}>
             <NavigateNextIcon sx={{ height: 38, width: 38 }} />
           </IconButton>
-          <IconButton aria-label="next">
+          <IconButton aria-label="favorite">
             {theme.direction === 'rtl' ? <DeleteForeverIcon /> : <GradeIcon />}
           </IconButton>
         </Box>
