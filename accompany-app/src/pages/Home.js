@@ -43,16 +43,11 @@ function Home() {
       });
     return (
         <div id="main-container">
-<<<<<<< Updated upstream
-            {/* <aside id="sidebar">
-                <div id="sidebar-logo">accompany</div>
-=======
             <aside id="sidebar">
                 <div id="sidebar-logo"><a href="#">accompany</a></div>
 
                 <hr></hr>
 
->>>>>>> Stashed changes
                 <div id="sidebar-items">
                     <ul>
                         <li class="sidebar-items__home">home</li>
@@ -64,10 +59,6 @@ function Home() {
                 </div>
             </aside>
             <div id="content">
-<<<<<<< Updated upstream
-                {adviceCards}
-            </div> */}
-=======
                 <div id="userpic">
                     <div id="userpic__img">
                         
@@ -141,7 +132,6 @@ function Home() {
 
                 
             </div>
->>>>>>> Stashed changes
         </div>
     );
 }
