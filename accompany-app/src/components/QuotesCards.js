@@ -7,8 +7,9 @@ const styles = {
       margin: '15px 10px',
       padding: 0,
       borderRadius: '16px',
-      backgroundColor: '#fcba03',
+      backgroundColor: 'orange',
       textAlign:"center",
+      
       
   },
   small: {
