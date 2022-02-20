@@ -1,17 +1,27 @@
-import React from 'react'
-import { TextField, Container, Button, ButtonGroup, Typography, Box, FormLabel, FormControl, textFieldClasses } from '@mui/material'
+import React, { useEffect } from "react";
+import {
+  TextField,
+  Container,
+  Button,
+  ButtonGroup,
+  Typography,
+  Box,
+  FormLabel,
+  FormControl,
+  textFieldClasses,
+} from "@mui/material";
 // import { makeStyles } from '@mui/styles';
-import QuotesCards from '../components/QuotesCards';
-import SearchIcon from '@mui/icons-material/Search';
-import { useState } from 'react'
+import QuotesCards from "../components/QuotesCards";
+import SearchIcon from "@mui/icons-material/Search";
+import { useState } from "react";
 
-import FavoriteIcon from '@mui/icons-material/Favorite';
-import TagIcon from '@mui/icons-material/Tag';
-import SettingsIcon from '@mui/icons-material/Settings';
+import FavoriteIcon from "@mui/icons-material/Favorite";
+import TagIcon from "@mui/icons-material/Tag";
+import SettingsIcon from "@mui/icons-material/Settings";
 
-import QuotesLayout from '../components/QuotesLayout'
-import './QuotesPage.css'
-import { ClassNames } from '@emotion/react';
+import QuotesLayout from "../components/QuotesLayout";
+import "./QuotesPage.css";
+import { ClassNames } from "@emotion/react";
 import * as Quote from "../back-end/functions";
 
 // const useStyles = makeStyles({
@@ -55,44 +65,55 @@ export default function QuotesPage() {
     console.log(cardsNew.title);
   };
 
-  // // GETTING THE QUOTES DATA 
-  // const [test, setTest] = useState({});
-  // const [fetchQuotesError, setfetchQuotesError] = useState(false);
+  // GETTING THE QUOTES DATA
+  const [test, setTest] = useState({});
+  const [fetchQuotesError, setfetchQuotesError] = useState(false);
+  useEffect(() => {
+    Quote.getAllQuotes().then((data) => {
+      console.log(data);
+      if (data.error) {
+        setfetchQuotesError(true);
+      } else {
+        //console.log(Object.keys(data));
+        setTest(data);
+        console.log(test);
+      }
+    });
+  }, []);
 
-  //   useEffect(() =>
-  //     Quote.getAllQuotes().then((data) => {
-  //       setQuotesNew(data);
-  //     })
-  //       .catch((e) => {
-  //         setfetchQuotesError(true);
-  //       })
-  // }, []);
-  // if (test)
+  //console.log(test);
+
+  // if (test) {
   //   return (
   //     <div>
-  //       {tests.map((i) => (
+  //       {test.map((i) => (
   //         <span key={i}>{i}</span>
   //       ))}
   //     </div>
   //   );
-  // else if (!quotes && !fetchQuotesError){
-  //   return <span>Fetching.. </span>;
-  // }else{
+  // } else if (!quotes && !fetchQuotesError) {
+  //   return <span>Fetching...</span>;
+  // } else {
   //   return <span>Error</span>;
   // }
-  // };
 
   return (
     <Container>
-      {/* <div style="display: flex; flex-direction: row" className="Container" >
-        <div style="flex: 0 0 auto" className="NavigationDrawer" id="nav-2"> */}
+      <div
+        style={{ display: "flex", flexDirection: "row" }}
+        className="Container"
+      >
+        <div
+          style={{ flex: "0 0 auto" }}
+          className="NavigationDrawer"
+          id="nav-2"
+        >
           <Box
             sx={{
               display: "flex",
               alignItems: "flex-end",
               border: 1,
-              borderRadius: 16
-
+              borderRadius: 16,
             }}
           >
             <SearchIcon sx={{ color: "action.active", mr: 1, my: 0.5 }} />
@@ -105,7 +126,7 @@ export default function QuotesPage() {
           </Box>
 
           <ButtonGroup color="secondary" onClick={() => console.log("clicked")}>
-            <Button type="submit" >
+            <Button type="submit">
               <FavoriteIcon /> Favorite{" "}
             </Button>
             <Button type="submit">
@@ -116,10 +137,7 @@ export default function QuotesPage() {
             </Button>
           </ButtonGroup>
 
-
           <br />
-          {/* Create new Quote */}
-          {/* <FormControl className={classes.field}> */}
           <FormLabel className="redbull">Create a New Quote</FormLabel>
           <form noValidate autoComplete="off" onSubmit={handleSubmit}>
             <TextField
@@ -144,9 +162,8 @@ export default function QuotesPage() {
             />
             <Button type="submit">Submit</Button>
           </form>
-
-        {/* </div>
-        <div style="flex: 0 0 25px" className="AppBar"> */}
+        </div>
+        <div style={{ flex: "0 0 25px" }} className="AppBar">
           <Typography
             variant="h2"
             color="primary"
@@ -156,23 +173,15 @@ export default function QuotesPage() {
           >
             Your Quotes, name
           </Typography>
-          {/* <QuotesLayout/> */}
 
           <Typography display="block">
             {" "}
             Discover Collection of your Quotes{" "}
           </Typography>
-          {/* </FormControl> */}
-        {/* </div>
-        <div style="flex: 1 1 auto" className="Content"> */}
 
-          <QuotesLayout />
-{/* 
+          <QuotesLayout props={test} />
         </div>
-      </div> */}
-
-
+      </div>
     </Container>
   );
 }
-
