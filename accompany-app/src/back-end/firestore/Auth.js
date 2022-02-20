@@ -15,6 +15,7 @@ const signUpUser = async (email, password, name, intro, cityLocation) => {
     .then((userCredential) => {
       user = userCredential.user;
       user.displayName = name;
+      console.log(user);
       createUserDocument(user, name, intro, cityLocation);
     })
     .catch((error) => {
