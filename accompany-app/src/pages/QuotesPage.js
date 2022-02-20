@@ -12,7 +12,7 @@ import SettingsIcon from '@mui/icons-material/Settings';
 import QuotesLayout from '../components/QuotesLayout'
 import './QuotesPage.css'
 import { ClassNames } from '@emotion/react';
-
+import * as Quote from "../back-end/functions";
 
 // const useStyles = makeStyles({
 //     field: {
@@ -23,102 +23,116 @@ import { ClassNames } from '@emotion/react';
 // })
 
 export default function QuotesPage() {
-    // const classes = useStyles()
-    const [title, setTitle] = useState('')
-    const [details, setDetails] = useState('')
-    const [titleError, setTitleError] = useState(false)
-    const [detailsError, setDetailsError] = useState(false)
+  // const classes = useStyles()
+  const [title, setTitle] = useState("");
+  const [details, setDetails] = useState("");
+  const [titleError, setTitleError] = useState(false);
+  const [detailsError, setDetailsError] = useState(false);
 
-    var quote = {}
-    const [quotesNew, setQuotesNew] = useState([])
-    const cardsNew = {};
-    // Handling Submit 
-    const handleSubmit = (e) => {
-        e.preventDefault()
-        setTitleError(false)
-        setDetailsError(false)
-        if (title == '') {
-            setTitleError(true)
-        }
-        if (details == '') {
-            setDetailsError(true)
-        }
-
-        if (title && details) {
-            // Set this to as a property for Card
-
-            console.log(title, details)
-
-            //attempt to make a global stuff -mm
-
-            cardsNew = quotesNew.map((quotesNew) => {
-                return (
-                    <QuotesCards
-                        // key={quotesNew.id}
-                        title={quotesNew.title}
-                        quote={quotesNew.quote}
-                    />
-                )
-            })
-
-        }
-        console.log(cardsNew.title)
+  var quote = {};
+  const [quotesNew, setQuotesNew] = useState([]);
+  let cardsNew = {};
+  // Handling Submit
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setTitleError(false);
+    setDetailsError(false);
+    if (title == "") {
+      setTitleError(true);
+    }
+    if (details == "") {
+      setDetailsError(true);
     }
 
-    return (
-        <Container>
-            <Typography variant="h2" color="primary" align="center" gutterBottom display="block">
-                Your Quotes, name
-            </Typography>
-            {/* <QuotesLayout/> */}
+    if (title && details) {
+      // Set this to as a property for Card
 
-            <Typography display="block"> Discover Collection of your Quotes </Typography>
+      console.log(title, details);
 
-            <Box sx={{ display: 'flex', alignItems: 'flex-end', border: 1, borderRadius: 16 }}>
-                <SearchIcon sx={{ color: 'action.active', mr: 1, my: 0.5 }} />
-                <TextField id="input-with-sx" label="Search" variant="standard" type="search" />
-            </Box>
+      //attempt to make a global stuff -mm
+      await Quote.addQuoteToCollection(details, title);
+    }
+    console.log(cardsNew.title);
+  };
 
-            <ButtonGroup color="secondary" onClick={() => console.log('clicked')}>
-                <Button type="submit" ><FavoriteIcon /> Favorite </Button>
-                <Button type="submit" ><TagIcon /> Tags </Button>
-                <Button type="submit" ><SettingsIcon /> Settings </Button>
-            </ButtonGroup>
+  return (
+    <Container>
+      <Typography
+        variant="h2"
+        color="primary"
+        align="center"
+        gutterBottom
+        display="block"
+      >
+        Your Quotes, name
+      </Typography>
+      {/* <QuotesLayout/> */}
 
-            <br />
-            {/* Create new Quote */}
-            {/* <FormControl className={classes.field}> */}
-            <FormLabel>Create a New Quote</FormLabel>
-            <form noValidate autoComplete="off" onSubmit={handleSubmit}>
-                <TextField
-                    onChange={(e) => setTitle(e.target.value)}
-                    label="Quote Title"
-                    variant="outlined"
-                    fullWidth
-                    required
-                    error={titleError} />
+      <Typography display="block">
+        {" "}
+        Discover Collection of your Quotes{" "}
+      </Typography>
 
-                <TextField
-                    onChange={(e) => setDetails(e.target.value)}
-                    label="Quote"
-                    variant="outlined"
-                    multiline
-                    maxRows={5}
-                    minRows={3}
-                    fullWidth
-                    required
-                    error={detailsError}
-                />
-                <Button type="submit">Submit</Button>
-            </form>
-            {/* </FormControl> */}
+      <Box
+        sx={{
+          display: "flex",
+          alignItems: "flex-end",
+          border: 1,
+          borderRadius: 16,
+        }}
+      >
+        <SearchIcon sx={{ color: "action.active", mr: 1, my: 0.5 }} />
+        <TextField
+          id="input-with-sx"
+          label="Search"
+          variant="standard"
+          type="search"
+        />
+      </Box>
 
+      <ButtonGroup color="secondary" onClick={() => console.log("clicked")}>
+        <Button type="submit">
+          <FavoriteIcon /> Favorite{" "}
+        </Button>
+        <Button type="submit">
+          <TagIcon /> Tags{" "}
+        </Button>
+        <Button type="submit">
+          <SettingsIcon /> Settings{" "}
+        </Button>
+      </ButtonGroup>
 
+      <br />
+      {/* Create new Quote */}
+      {/* <FormControl className={classes.field}> */}
+      <FormLabel>Create a New Quote</FormLabel>
+      <form noValidate autoComplete="off" onSubmit={handleSubmit}>
+        <TextField
+          onChange={(e) => setTitle(e.target.value)}
+          label="Quote Title"
+          variant="outlined"
+          fullWidth
+          required
+          error={titleError}
+        />
 
-            <QuotesLayout />
+        <TextField
+          onChange={(e) => setDetails(e.target.value)}
+          label="Quote"
+          variant="outlined"
+          multiline
+          maxRows={5}
+          minRows={3}
+          fullWidth
+          required
+          error={detailsError}
+        />
+        <Button type="submit">Submit</Button>
+      </form>
+      {/* </FormControl> */}
 
-
-        </Container>
-    )
+      <QuotesLayout />
+    </Container>
+  );
 }
 
