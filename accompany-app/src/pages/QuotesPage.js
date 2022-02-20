@@ -18,7 +18,7 @@ function QuotesPage() {
     return (
         <Container>
             <Typography variant="h2" color="primary" align="center" gutterBottom display="block">
-                Your Quotes, name
+                Your Quotes, namea
             </Typography>
             {/* <QuotesLayout/> */}
 
