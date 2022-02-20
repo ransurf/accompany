@@ -36,7 +36,7 @@ function PageHeader() {
                   Quotes
                 </Link>
                 <Link className="link" to="/chatroom">
-                  ChatRoom
+                  GroupChat
                 </Link>
                 <Link className="link" to="/home" onClick={signOutAndRedirect}>
                   Logout
@@ -47,9 +47,6 @@ function PageHeader() {
                 <Link className="link" to="/">
                   Accompany
                 </Link>
-                <Link className="link" to="/login">
-                  Login
-                </Link>
               </>
             )}
           </div>
@@ -57,8 +54,7 @@ function PageHeader() {
         <div className="content">
           <Routes>
             <Route exact path="/" element={<LandingPage />} />
-            <Route exact path="/home" element={<MainPage />} />
-            <Route exact path="/hometest" element={<Home />} />
+            <Route exact path="/home" element={<Home />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/signup" element={<SignUpPage />} />
             <Route path="/quotespage" element={<QuotesPage />} />

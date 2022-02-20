@@ -17,6 +17,7 @@ export default function ChatroomApp() {
   return (
     <div className="flex-container">
       <div className="chatSection">
+        <h1>Group Session</h1>
         <Chatroom />
       </div>
     </div>
@@ -52,6 +53,8 @@ function Chatroom() {
 
   return (
     <>
+    <div className="main-container">
+      
       <div className="chatroom-container">
         {messages &&
           messages.map((msg) => <ChatMessage key={msg.id} message={msg} />)}
@@ -67,6 +70,7 @@ function Chatroom() {
           </button>
         </form>
       </div>
+      </div>
     </>
   );
 }
@@ -81,7 +85,7 @@ function ChatMessage(props) {
       
       <div className={`message ${messageClass}`}>
         {/* <span>{name}</span> */}
-        <img src="https://picsum.photos/200/300" />
+        <img className="img" src="https://picsum.photos/200/300" />
         <div>
           <p>{text}</p>
         </div>

@@ -2,13 +2,13 @@ import { color, style, textAlign } from '@mui/system'
 import React from 'react'
 
 const styles = {
-
   card: {
       margin: '15px 10px',
       padding: 0,
       borderRadius: '16px',
-      backgroundColor: 'orange',
+      backgroundColor: "#2F374F",
       textAlign:"center",
+      color: 'white'
       
       
   },

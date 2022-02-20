@@ -1,4 +1,5 @@
 import * as React from 'react';
+import {useEffect} from 'react';
 import { useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
@@ -11,6 +12,11 @@ import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 
 export default function AdviceCard(props) {
   const theme = useTheme();
+
+  useEffect(() => {
+    console.log("AdviceCard useEffect");
+    console.log("props =", props);
+  }, []);
   const deleteQuote = () => {
     console.log("deleteQuote")
     props.deleteQuote(props.quote.id)
@@ -28,10 +34,9 @@ export default function AdviceCard(props) {
       <Box sx={{ display: 'flex', flexDirection: 'column'}}>
         <CardContent sx={{ flex: '1 0 auto' }}>
           <Typography component="div" variant="h5">
-            Title
+            Yes
           </Typography>
           <Typography variant="subtitle1" color="text.secondary" component="div">
-            {props.quote}
           </Typography>
         </CardContent>
         <Box sx={{ display: 'flex', alignItems: 'center', pl: 1, pb: 1 }}>

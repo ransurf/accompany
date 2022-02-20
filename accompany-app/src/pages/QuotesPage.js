@@ -103,7 +103,7 @@ export default function QuotesPage() {
       <div class="title">
       <Typography
           variant="h2"
-          color="primary"
+          color="white"
           align="center"
           gutterBottom
           display="block"
@@ -111,13 +111,7 @@ export default function QuotesPage() {
           Your Quotes, name
         </Typography>
         {/* <QuotesLayout/> */}
-
-        <Typography display="block">
-          {" "}
-          Discover Collection of your Quotes{" "}
-        </Typography>
       
-
       </div>
       <hr className="new5"/>
       <div class="layout-wrapper">
@@ -141,8 +135,8 @@ export default function QuotesPage() {
               />
             </Box>
           </div>
-          <div className="box">
-            <Button type="submit" >
+          {/* <div className="box">
+            <Button type="submit">
               <FavoriteIcon /> Favorite{" "}
             </Button>
 
@@ -157,12 +151,13 @@ export default function QuotesPage() {
             <Button type="submit">
               <SettingsIcon /> Settings{" "}
             </Button>
-          </div>
+          </div> */}
           <div className="box">
             <br />
             {/* Create new Quote */}
             {/* <FormControl className={classes.field}> */}
-            <FormLabel >Create a New Quote</FormLabel>
+            <FormLabel 
+            >Create a New Quote</FormLabel>
             <form className="form__dark" noValidate autoComplete="off" onSubmit={handleSubmit}>
               <TextField
                 onChange={(e) => setTitle(e.target.value)}

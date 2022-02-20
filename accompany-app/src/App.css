@@ -1,7 +1,10 @@
 /* setup flexbox*/
+content 
 .flex-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #f1f1f1;
 }

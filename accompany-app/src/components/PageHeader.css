@@ -10,9 +10,11 @@
 
 .link {   /*links in div links*/
     text-decoration: none;
-    color: #0072BC;
-    font-size: 22px;
+    font-size: 20px;
+    font-family: "GT Eesti Display";
+    color: white;
     transition: transform 0.2s;
+    src: url("../pages/assets/fonts/GT-Eesti-Display-Regular-Trial.otf") format("truetype");
 }
 
 .link:hover {
@@ -29,16 +31,18 @@
 
 .header {      /*header? pls clarify*/
     display: flex;
+    background-color: #2F374F;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
     width: 100%;
     gap: 10px;
-    padding-bottom: 30px;
+    padding-bottom: 15px;
     
 }
 
 .content {
     width: 100%;
-    background-color: white;
 }
+/* opacity: 0.5;
+ */
