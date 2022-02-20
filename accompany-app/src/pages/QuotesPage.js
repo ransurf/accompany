@@ -55,9 +55,9 @@ export default function QuotesPage() {
     console.log(cardsNew.title);
   };
 
-  // GETTING THE QUOTES DATA 
-  const [test, setTest] = useState({});
-  const [fetchQuotesError, setfetchQuotesError] = useState(false);
+  // // GETTING THE QUOTES DATA 
+  // const [test, setTest] = useState({});
+  // const [fetchQuotesError, setfetchQuotesError] = useState(false);
 
   //   useEffect(() =>
   //     Quote.getAllQuotes().then((data) => {
@@ -65,7 +65,7 @@ export default function QuotesPage() {
   //     })
   //       .catch((e) => {
   //         setfetchQuotesError(true);
-  //       });
+  //       })
   // }, []);
   // if (test)
   //   return (
@@ -84,8 +84,8 @@ export default function QuotesPage() {
 
   return (
     <Container>
-      <div style="display: flex; flex-direction: row" class="Container" >
-        <div style="flex: 0 0 auto" class="NavigationDrawer" id="nav-2">
+      {/* <div style="display: flex; flex-direction: row" className="Container" >
+        <div style="flex: 0 0 auto" className="NavigationDrawer" id="nav-2"> */}
           <Box
             sx={{
               display: "flex",
@@ -145,8 +145,8 @@ export default function QuotesPage() {
             <Button type="submit">Submit</Button>
           </form>
 
-        </div>
-        <div style="flex: 0 0 25px" class="AppBar">
+        {/* </div>
+        <div style="flex: 0 0 25px" className="AppBar"> */}
           <Typography
             variant="h2"
             color="primary"
@@ -163,13 +163,13 @@ export default function QuotesPage() {
             Discover Collection of your Quotes{" "}
           </Typography>
           {/* </FormControl> */}
-        </div>
-        <div style="flex: 1 1 auto" class="Content">
+        {/* </div>
+        <div style="flex: 1 1 auto" className="Content"> */}
 
           <QuotesLayout />
-
+{/* 
         </div>
-      </div>
+      </div> */}
 
 
     </Container>
