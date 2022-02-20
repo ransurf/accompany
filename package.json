@@ -1,5 +1,6 @@
 {
   "dependencies": {
-    "@mui/styles": "^5.4.2"
+    "@mui/styles": "^5.4.2",
+    "firebase": "^9.6.7"
   }
 }

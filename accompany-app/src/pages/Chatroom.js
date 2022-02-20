@@ -15,8 +15,10 @@ import { useState } from "react";
 
 export default function ChatroomApp() {
   return (
-    <div className="chatSection">
-      <Chatroom />
+    <div className="flex-container">
+      <div className="chatSection">
+        <Chatroom />
+      </div>
     </div>
   );
 }
