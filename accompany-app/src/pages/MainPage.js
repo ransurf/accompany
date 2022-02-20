@@ -10,8 +10,7 @@ function MainPage() {
 
   useEffect(async () => {
     console.log("MainPage useEffect");
-    // setAdvice(await APIFirebase.getAllQuotes());
-    setAdvice([])
+    setAdvice(await APIFirebase.getAllQuotes());
     console.log("advice =", advice);
   }, []);
 
@@ -41,7 +40,7 @@ function MainPage() {
 
  
 
-  return <div className="flex-container">{adviceCards[quoteIndex]}</div>;
+  return <div className="flex-container">{adviceCards}</div>;
 }
 
 export default MainPage;
