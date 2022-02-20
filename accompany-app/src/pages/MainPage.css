@@ -4,3 +4,8 @@
     justify-content: center;
     flex-direction: column;
 }
+
+.welcome{
+    text-align: center;
+    font-style: italic;
+}

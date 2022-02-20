@@ -1,4 +1,5 @@
 import {React} from 'react';
+import LandingPage from '../pages/LandingPage';
 import MainPage from '../pages/MainPage';
 import LoginPage from '../pages/LoginPage';
 import SignUpPage from '../pages/SignUpPage';
@@ -17,27 +18,32 @@ function PageHeader() {
             <Router >
                 <div className="header">
                     <div className="links">
-                        <Link className="link" to="/home">Home</Link>
-                        <Link className="link" to="/login">Login</Link>
-                        <Link className="link" to="/quotespage">Quotes</Link>
+
                         {user ? (
                             <>
+                                <Link className="link" to="/home">Home</Link>
                                 <Link className="link" to="/chatroom">
                                 ChatRoom
                                 </Link>
+                                <Link className="link" to="/quotespage">Quotes</Link>
                                 <button className="logOut" onClick={signOut}>
                                 LogOut
                                 </button>
                             </>
                             ) : (
-                            <Link className="link" to="/login">
+                            <>
+                                <Link className="link" to="/">Accompany</Link>
+                                <Link className="link" to="/login">
                                 Login
                             </Link>
+                            </>
+                            
                             )}
                     </div>
                 </div>
                 <div className="content">
                 <Routes>
+                    <Route path="/" element={<LandingPage />} />
                     <Route exact path="/home" element={<MainPage/>}/>
                     <Route path="/login" element={<LoginPage/>}/>
                     <Route path="/signup" element={<SignUpPage/>}/>

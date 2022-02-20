@@ -29,12 +29,16 @@ function MainPage() {
 
   const adviceCards = advice.map((quote) => {
     return (
-      <AdviceCard
-        quote={quote}
-        deleteQuote={deleteQuote}
-        nextQuote={nextQuote}
-        favoriteQuote={favoriteQuote}
-      />
+      <div>
+        <h2 className="welcome">Welcome back, Bob</h2>
+        <h3>Quote Dashboard</h3>
+        <AdviceCard
+          quote={quote}
+          deleteQuote={deleteQuote}
+          nextQuote={nextQuote}
+          favoriteQuote={favoriteQuote}
+        />
+      </div>
     );
   });
 
