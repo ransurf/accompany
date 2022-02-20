@@ -8,7 +8,8 @@ const styles = {
       padding: 0,
       borderRadius: '16px',
       backgroundColor: '#fcba03',
-      textAlign:"center"
+      textAlign:"center",
+      
   },
   small: {
       gridRowEnd: 'span 20'
@@ -27,7 +28,10 @@ function QuotesCards(props) {
     <div style={{
       ...styles.card,
       ...styles[props.size]
-    }}>Test1</div>
+    }}>
+      <h2>{props.title}</h2>
+      <p>{props.quote}</p>
+    </div>
   )
 }
 

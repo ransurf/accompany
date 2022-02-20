@@ -2,6 +2,7 @@ import { orderBy } from '@firebase/firestore'
 import { borderRadius, flexbox } from '@mui/system'
 import React from 'react'
 import QuotesCards from './QuotesCards'
+import { useState } from 'react'
 
 const styles = {
     quotes_container: {
@@ -22,17 +23,32 @@ const styles = {
 }
 
 function QuotesLayout() {
+    const [quotes, setQuotes] = useState([
+        {
+            id: 1,
+            title: "Title 1".toUpperCase(),
+            quote: "I'm selfish, impatient and a little insecure. I make mistakes, I am out of control and at times hard to handle. But if you can't handle me at my worst, then you sure as hell don't deserve me at my best.",
+            size:"small"
+        },
+        {
+            id: 2,
+            title: "Title 1".toUpperCase(),
+            quote: "I'm selfish, impatient and a little insecure. I make mistakes, I am out of control and at times hard to handle. But if you can't handle me at my worst, then you sure as hell don't deserve me at my best."
+        }
+    ])
+    const cards = quotes.map((quote) => {
+        return (
+            <QuotesCards
+                key={quote.id}
+                title={quote.title}
+                quote={quote.quote}
+                size={quote.size}
+            />
+        )
+        })
     return (
         <div style={styles.quotes_container}>
-            <QuotesCards size="medium" />
-            <QuotesCards size="large" />
-            <QuotesCards size="small" />
-            <QuotesCards size="medium" />
-            <QuotesCards size="large" />
-            <QuotesCards size="small" />
-            <QuotesCards size="medium" />
-            <QuotesCards size="large" />
-
+            {cards}
         </div>
     )
 }
