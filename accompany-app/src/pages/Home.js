@@ -43,8 +43,16 @@ function Home() {
       });
     return (
         <div id="main-container">
+<<<<<<< Updated upstream
             {/* <aside id="sidebar">
                 <div id="sidebar-logo">accompany</div>
+=======
+            <aside id="sidebar">
+                <div id="sidebar-logo"><a href="#">accompany</a></div>
+
+                <hr></hr>
+
+>>>>>>> Stashed changes
                 <div id="sidebar-items">
                     <ul>
                         <li class="sidebar-items__home">home</li>
@@ -56,8 +64,84 @@ function Home() {
                 </div>
             </aside>
             <div id="content">
+<<<<<<< Updated upstream
                 {adviceCards}
             </div> */}
+=======
+                <div id="userpic">
+                    <div id="userpic__img">
+                        
+                    </div>
+                </div>
+
+                <section id="content-main-container">
+                    <div id="large-greeting">
+                        WELCOME BACK, <em>username</em>
+                    </div>
+
+                    <div id="blocks">
+                        
+                        <div class="block-insight">
+                            <div>
+                                <div class="block-insight-header">insight of the day</div>
+                            </div>
+                            <div class="block-insight-content">
+                                <div>Taking even 30 minute long walks every day makes you feel refreshed and helps to <br/>stay energized</div>
+                                <div class="block-insights-like">
+                                    <div class="button-like-count">155</div>
+                                    <div class="button-like"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="block-habits">
+                            <div>
+                                <div class="block-generic-header">
+                                    My Habits
+                                    <div class="button-edit button-edit-block"></div>
+                                </div>
+                            </div>
+
+                            <div class="block-habits__items">
+                                <div class="block-habits__item">
+                                    <div class="block-habits__item__icon">😴</div>
+                                    <div class="block-habits__item__caption">Healthy sleep</div>
+                                </div>
+                                <div class="block-habits__item">
+                                    <div class="block-habits__item__icon">🥝</div>
+                                    <div class="block-habits__item__caption">Healthy diet</div>
+                                </div>
+                                <div class="block-habits__item">
+                                    <div class="block-habits__item__icon">💊</div>
+                                    <div class="block-habits__item__caption">Taking medications</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="block-reminders">
+                            <div>
+                                <div class="block-generic-header">My Reminders</div>
+                                <div class="button-edit button-edit-block button-edit-block-reminders"></div>
+                            </div>
+
+                            <div class="block-reminders__items">
+                                <div class="block-reminders__item">
+                                    <div class="block-reminders__item__caption">Phone Mom</div>
+                                    <div class="block-reminders__item__time"><b>23 Feb</b><br/>Evening</div>
+                                </div>
+                                <div class="block-reminders__item">
+                                    <div class="block-reminders__item__caption">Group Session</div>
+                                    <div class="block-reminders__item__time"><b>28 Feb</b><br/>1:00pm</div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+
+                
+            </div>
+>>>>>>> Stashed changes
         </div>
     );
 }

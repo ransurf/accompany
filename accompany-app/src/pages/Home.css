@@ -8,10 +8,35 @@
 }
 
 @font-face {
-    /* fancy script font for the letter logo */
+    /* the headings and titles roundish font */
+    font-family: "Cooper Black";
+    font-weight: normal;
+    src: url("./assets/fonts/COOPBL.ttf") format("opentype");
+}
+
+@font-face {
+    /* the main sans serif font */
     font-family: "GT Eesti Display";
-    font-weight: 400;
+    font-weight: 400;  /* in various weights */
     src: url("./assets/fonts/GT-Eesti-Display-Regular-Trial.otf") format("opentype");
+}
+
+@font-face {
+    font-family: "GT Eesti Display";
+    font-weight: 100;
+    src: url("./assets/fonts/GT-Eesti-Display-Thin-Trial.otf") format("opentype");
+}
+
+@font-face {
+    font-family: "GT Eesti Display";
+    font-weight: 500;
+    src: url("./assets/fonts/GT-Eesti-Display-Medium-Trial.otf") format("opentype");
+}
+
+@font-face {
+    font-family: "GT Eesti Display";
+    font-weight: 800;
+    src: url("./assets/fonts/GT-Eesti-Display-UltraBold-Trial.otf") format("opentype");
 }
 
 
@@ -19,6 +44,8 @@
 
 :root {
     --color-bg-main: #2F374F;
+    --color-bg-insights: #D1D4AF;
+    --color-fg-yellow: #F1F996;
     --color-fg-sidebar: #EBEBEE;
 }
 
@@ -37,16 +64,28 @@ html {
 #sidebar {
     padding: 0 1.33rem 0 1.33rem;
     background-color: var(--color-bg-main);
-    height: 100vh;
+    height: 100%;
 }
 
 #sidebar > #sidebar-logo {
-    padding: 2rem;
+    padding: 2rem 2rem 2.66rem 2rem;
     font-family: "Queen Elena";
     font-size: 4rem;
     letter-spacing: 0.03em;
     text-align: center;
     color: white;
+}
+
+#sidebar > #sidebar-logo a,
+#sidebar > #sidebar-logo a:hover,
+#sidebar > #sidebar-logo a:visited
+{
+    color: white;
+    text-decoration: none;
+}
+
+#sidebar hr {
+    opacity: 0.5;
 }
 
 #sidebar-items {
@@ -66,45 +105,278 @@ html {
 }
 
 #sidebar-items > ul > li {
-    padding-left: 2.7rem;
+    padding-left: 2.5rem;
     color: var(--color-fg-sidebar);
     text-transform: uppercase;
     background-repeat: no-repeat;
-	background-size: 33px;
+	background-size: 28px;
 }
 
 #sidebar-items > ul > li:hover {
-    color: var(--color-bg-main);
-    background-color: #9CA4BC;
+    background-color: #3D4766;
     cursor: pointer;
+    transition: 0.2s ease-in-out;
 }
 
 #sidebar-items li.sidebar-items__home {
-    background-position: 0 3px;
+    background-position: 0 7px;
     background-image: url('./assets/img/icons/side-menu__home.png');
 }
 
 #sidebar-items li.sidebar-items__threads {
-    background-position: 0 8px;
+    background-position: 0 12px;
     background-image: url('./assets/img/icons/side-menu__threads.png');
 }
 
 #sidebar-items li.sidebar-items__insights {
-    background-position: 0 7px;
+    background-position: 0 9px;
     background-image: url('./assets/img/icons/side-menu__insights.png');
 }
 
 #sidebar-items li.sidebar-items__habits {
-    background-position: 0 4px;
+    background-position: 0 8px;
     background-image: url('./assets/img/icons/side-menu__habits.png');
 }
 
 #sidebar-items li.sidebar-items__quotes {
-    background-position: 0 11px;
+    background-position: 0 13px;
     background-image: url('./assets/img/icons/side-menu__quotes.png');
 }
 
 #content {
+    position: relative;
+    font-family: 'GT Eesti Display';
     background-image: url('./assets/img/bg__home__ocean.jpg');
-    background-size: 100% 100%;
+    background-size: cover;
 }
+
+#content #userpic {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 4rem;
+    height: 4rem;
+    background-image: url('./assets/img/userpics/with-border__unsplash_RDcEWH5hSDE.png');
+    background-size: 100% 100%;
+
+}
+
+#content #userpic__img {
+  
+}
+
+#content #content-main-container {
+    padding: 4rem 5rem;
+}
+
+#content-main-container #large-greeting {
+    padding: 3.5rem;
+    color: var(--color-fg-yellow);
+    font-size: 2.8rem;
+    font-weight: 100;
+    letter-spacing: 0.035em;
+    text-align: center;
+    text-transform: uppercase;
+    filter: drop-shadow(0px 4px 8px rgba(0, 0, 0, 0.1));
+}
+
+#content-main-container #large-greeting em {
+    font-family: 'Cooper Black';
+    font-style: normal;
+}
+
+#content-main-container #blocks {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    row-gap: 1rem;
+    column-gap: 4rem;
+}
+
+.block-generic-header {
+    position: relative;
+    padding: 0.2rem 0 1.1rem 0;
+    font-family: 'Cooper Black';
+    font-style: normal; 
+    font-size: 1.5rem;
+    text-align: center;
+    letter-spacing: 0.03em;
+    color: #F1F996;
+}
+
+.block-insight {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 0.73rem;
+}
+
+.block-insight-header {
+    margin: 0;
+    padding-top: 0.6rem;
+    width: 15.125rem;
+    height: 2.313rem;
+    font-family: 'Cooper Black';
+    font-size: 1.1em;
+    text-align: center;
+    text-transform: uppercase;
+    color: white;
+    border-radius: 14px 14px 0 0;
+    background-color: var(--color-bg-main);
+}
+
+.block-insight-content {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.3rem;
+    width: 24.188em;
+    height: 9.813em;
+    font-weight: 500;
+    text-align: center;
+    border-radius: 14px;
+    color: var(--color-bg-main);
+    background-color: var(--color-bg-insights);
+    background-image: url('./assets/img/bg__block__clouds.png');
+    background-size: 100%;
+    filter: drop-shadow(0px 4px 8px rgba(0, 0, 0, 0.1));
+}
+
+.block-habits {
+    width: 100%;
+}
+
+.block-habits__items {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+}
+
+.block-habits__item {
+    position: relative;
+    width: 13.063rem;
+    height: 5.688rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 0.025em;
+    border-radius: 14px;
+    color: #7D4A61;
+    background-color: #F5D2E2;
+    filter: drop-shadow(0px 4px 8px rgba(0, 0, 0, 0.1));
+}
+
+.block-habits__item:hover {
+    background-color: #F5BDD7;
+    cursor: pointer;
+    transition: 0.5s ease-in-out;
+}
+
+.block-habits__item__icon {
+    position: absolute;
+    top: 0.4rem;   
+    left: 0.5rem;
+    font-size: 1.45rem;
+}
+
+.block-habits__item__caption {
+    position: absolute;
+    bottom: 0.55rem;
+    right: 0.7rem;
+}
+
+.block-reminders {
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 0.73rem;
+}
+
+.block-reminders__items {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+}
+
+.block-reminders__item {
+    position: relative;
+    width: 11.25rem;
+    height: 11.25rem;
+    border-radius: 14px;
+    color: #E9E9FF;
+    background-color: #676680;
+    filter: drop-shadow(0px 4px 8px rgba(0, 0, 0, 0.1));
+}
+
+.block-reminders__item:hover {
+    background-color: #797895;
+    cursor: pointer;
+    transition: 0.5s ease-in-out;
+}
+
+.block-reminders__item__caption {
+    position: absolute;
+    top: 2rem;
+    left: 0.9rem;
+    font-size: 1.4rem;
+    font-weight: 400;   
+}
+
+.block-reminders__item__time {
+    position: absolute;
+    bottom: 0.8rem;
+    left: 0.9rem;
+    font-size: 1.1rem;
+    font-weight: 100;   
+}
+
+.block-reminders__item__time b {
+    font-weight: 400;   
+}
+
+.button-edit {
+    background-image: url('./assets/img/icons/common__edit.png');
+    background-size: 1.375rem;
+}
+
+.button-edit:hover {
+    cursor: pointer;
+}
+
+.button-edit-block {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.66rem;
+    width: 1.375rem;
+    height: 1.375rem;
+}
+
+.button-edit-block-reminders {
+    top: 1.2rem;
+}
+
+.button-like {
+    width: 1.5rem;
+    height: 1.5rem;
+    background-image: url('./assets/img/icons/common__like.png');
+    background-size: 1.5rem;
+}
+
+.button-like:hover {
+    cursor: pointer;
+}
+
+.button-like-count {
+    padding-top: 0.25rem;
+    padding-right: 0.5rem;
+}
+
+.block-insights-like {
+    position: absolute;
+    display: inline-flex;
+    bottom: 0.6rem;
+    right: 0.6rem;
+}
+
