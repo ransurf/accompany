@@ -31,6 +31,10 @@ const addQuote = async (user, quote) => {
   await Create.addQuote(user, quote);
 };
 
+const addQuoteToCollection = async (quote, quoteName) => {
+  await Create.addQuoteToCollection(quote, quoteName);
+};
+
 const getUserQoutes = async (userUID) => {
   const data = Read.getUserQoutes(userUID);
   return data;
@@ -52,6 +56,7 @@ export {
   signIn,
   signOut,
   addQuote,
+  addQuoteToCollection,
   getUserQoutes,
   getUserProfile,
   getAllQuotes,
