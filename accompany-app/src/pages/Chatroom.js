@@ -3,36 +3,29 @@ import React from "react";
 import { db, auth } from "../back-end/firestore/firebase.js";
 import "firebase/firestore";
 import {
-  doc,
-  getDoc,
-  getDocs,
+  query,
   collection,
   limit,
   orderBy,
+  serverTimestamp,
+  addDoc,
 } from "firebase/firestore";
-
 import { useCollectionData } from "react-firebase-hooks/firestore";
 import { useState } from "react";
 
-//Only show chatroom is user is signed in
-function ChatroomApp() {
+export default function ChatroomApp() {
   return (
-    <div className="chatroom">
-      <p>HELLO</p>
-      <header>
-        <section>
-          <Chatroom />
-        </section>
-      </header>
+    <div className="chatSection">
+      <Chatroom />
     </div>
   );
 }
 
 function Chatroom() {
   const messagesRef = collection(db, "messages");
-  const query = query(messagesRef, orderBy("createdAt"), limit(25));
+  const query1 = query(messagesRef, orderBy("createdAt"), limit(25));
 
-  const [messages] = useCollectionData(query, { idField: "id" });
+  const [messages] = useCollectionData(query1, { idField: "id" });
 
   const [formValue, setFormValue] = useState("");
 
@@ -41,10 +34,10 @@ function Chatroom() {
 
     const { uid } = auth.currentUser;
 
-    await messagesRef.add({
+    await addDoc(messagesRef, {
       text: formValue,
-      createdAt: db.FieldValue.serverTimestamp(),
-      uid,
+      createdAt: serverTimestamp(),
+      uid: uid,
     });
 
     setFormValue("");
@@ -55,12 +48,16 @@ function Chatroom() {
       <div>
         {messages &&
           messages.map((msg) => <ChatMessage key={msg.id} message={msg} />)}
-        <form onSubmit={sendMessage}>
+        <form onSubmit={sendMessage} className="form">
           <input
+            className="input"
             value={formValue}
             onChange={(e) => setFormValue(e.target.value)}
+            placeholder="say something nice"
           />
-          <button type="submit">Send</button>
+          <button type="submit" className="form-button">
+            Send
+          </button>
         </form>
       </div>
     </>
@@ -79,5 +76,3 @@ function ChatMessage(props) {
     </div>
   );
 }
-
-export default ChatroomApp;
