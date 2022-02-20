@@ -5,6 +5,7 @@ import QuotesCards from './QuotesCards'
 import { useState } from 'react'
 import "./QuotesLayout.css";
 
+
 const styles = {
         
     quotes_container: {
@@ -24,11 +25,12 @@ const styles = {
 }
 
 function QuotesLayout() {
+
     const [quotes, setQuotes] = useState([
         {
             id: 1,
-            title: "Stoicism".toUpperCase(),
-            quote: "I'm selfish, asd impatient and a little insecure. I make mistakes, I am out of control and at times hard to handle. ",
+            title: "Moving On".toUpperCase(),
+            quote: "To accept it without arrogance, to let it go with indifference",
             size:"small"
         },
         {
@@ -39,11 +41,12 @@ function QuotesLayout() {
         },
         {
             id: 3,
-            title: "Title 3".toUpperCase(),
-            quote: "I'm selfish, asd impatient and a little insecure. I make mistakes, I am out of control and at times hard to handle. But if you can't handle me at my worst, then you sure as hell don't deserve me at my best.",
+            title: "Perceptions".toUpperCase(),
+            quote: "Perceptions like that—latching onto things and piercing through them, so we see what they really are. That’s what we need to do all the time—all through our lives when things lay claim to our trust—to lay them bare and see how pointless they are, to strip away the legend that encrusts them.",
             size:"large"
         }
     ])
+
     const cards = quotes.map((quote) => {
         return (
             <QuotesCards

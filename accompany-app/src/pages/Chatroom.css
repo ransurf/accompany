@@ -1,5 +1,20 @@
+.parent {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: 1fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+}
+    
+.div1 { grid-area: 1 / 1 / 2 / 6; }
 
-
+.prompts {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+}
 .chatroom {
     text-align: center;
     max-width: 728px;
@@ -31,7 +46,10 @@
 
 .form-button {
     width: 20%;
-    background-color: rgb(189, 220, 255);
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: white;
+    background-color: rgb(146, 166, 255);
     border: none;
 }
 
@@ -50,6 +68,7 @@
 .button {
     background-color: #282c34;
     /* Green */
+    font-family: 'Roboto', sans-serif;
     border: none;
     color: white;
     padding: 15px 32px;
@@ -74,8 +93,6 @@
 }
 
 
-
-
 .ul, li {
     text-align: left;
     list-style: none;
@@ -89,10 +106,6 @@
     position: relative;
     color: white;
     text-align: center;
-}
-
-.message-container {
-    
 }
 
 .message {
@@ -116,8 +129,6 @@
     
 }
 
-.received {
-}
 .name{
     padding-left: 100px;
     padding-right: 100px;

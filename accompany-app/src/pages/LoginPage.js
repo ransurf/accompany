@@ -51,7 +51,10 @@ export default function LoginPage() {
     margin: "20px auto",
   };
 
-  const btnstyle = { margin: "8px 0" };
+  const btnstyle = { 
+    backgroundColor: "#2F374F",
+    margin: "8px 0" 
+  };
   return (
     <Grid>
       <Paper elevation={10} style={paperStyle}>
@@ -74,7 +77,8 @@ export default function LoginPage() {
             fullWidth
             required
           />
-          <Button type="submit" variant="contained" style={btnstyle} fullWidth>
+          <Button 
+          style={btnstyle} type="submit" variant="contained" fullWidth>
             Sign in
           </Button>
         </form>

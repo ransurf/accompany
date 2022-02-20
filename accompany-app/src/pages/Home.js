@@ -43,7 +43,7 @@ function Home() {
       });
     return (
         <div id="main-container">
-            <aside id="sidebar">
+            {/* <aside id="sidebar">
                 <div id="sidebar-logo">accompany</div>
                 <div id="sidebar-items">
                     <ul>
@@ -57,7 +57,7 @@ function Home() {
             </aside>
             <div id="content">
                 {adviceCards}
-            </div>
+            </div> */}
         </div>
     );
 }

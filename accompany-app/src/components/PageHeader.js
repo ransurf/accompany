@@ -44,8 +44,8 @@ function PageHeader() {
               </>
             ) : (
               <>
-                <Link className="link" to="/">
-                  Accompany
+                <Link className="link accompany" to="/">
+                  accompany
                 </Link>
               </>
             )}
@@ -54,7 +54,7 @@ function PageHeader() {
         <div className="content">
           <Routes>
             <Route exact path="/" element={<LandingPage />} />
-            <Route exact path="/home" element={<Home />} />
+            <Route exact path="/home" element={<MainPage />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/signup" element={<SignUpPage />} />
             <Route path="/quotespage" element={<QuotesPage />} />

@@ -23,6 +23,8 @@ import QuotesLayout from "../components/QuotesLayout";
 import "./QuotesPage.css";
 import { ClassNames } from "@emotion/react";
 import * as Quote from "../back-end/functions";
+import * as APIFirebase from '../back-end/functions'
+import Cookies from 'js-cookie'
 
 // const useStyles = makeStyles({
 //     field: {
@@ -32,12 +34,20 @@ import * as Quote from "../back-end/functions";
 //     }
 // })
 
+
 export default function QuotesPage() {
   // const classes = useStyles()
+  const [user, setUser] = useState(null)
   const [title, setTitle] = useState("");
   const [details, setDetails] = useState("");
   const [titleError, setTitleError] = useState(false);
   const [detailsError, setDetailsError] = useState(false);
+
+  useEffect(async () => {
+    const userID = Cookies.get('session')
+    setUser(await APIFirebase.getUserProfile(userID))
+    console.log("user =", user)
+  }, []);
 
   var quote = {};
   const [quotesNew, setQuotesNew] = useState([]);
@@ -108,7 +118,7 @@ export default function QuotesPage() {
           gutterBottom
           display="block"
         >
-          Your Quotes, name
+          Your quotes, {user ? user.name : "user"}
         </Typography>
         {/* <QuotesLayout/> */}
       
@@ -160,6 +170,7 @@ export default function QuotesPage() {
             >Create a New Quote</FormLabel>
             <form className="form__dark" noValidate autoComplete="off" onSubmit={handleSubmit}>
               <TextField
+              
                 onChange={(e) => setTitle(e.target.value)}
                 label="Quote Title"
                 variant="outlined"
@@ -179,7 +190,11 @@ export default function QuotesPage() {
                 required
                 error={detailsError}
               />
-              <Button type="submit">Submit</Button>
+              <Button type="submit"
+              style={{
+                color: "white"
+              }}
+              >Submit</Button>
             </form>
           </div>
         </div>

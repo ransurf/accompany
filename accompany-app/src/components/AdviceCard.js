@@ -19,7 +19,6 @@ export default function AdviceCard(props) {
   }, []);
   const deleteQuote = () => {
     console.log("deleteQuote")
-    props.deleteQuote(props.quote.id)
   }
   const nextQuote = () => {
     console.log("nextQuote")
@@ -27,7 +26,6 @@ export default function AdviceCard(props) {
   }
   const favoriteQuote = () => {
     console.log("favoriteQuote")
-    props.favoriteQuote(props.quote.id)
   }
   return (
     <Card sx={{ display: 'flex', width: 500}}>

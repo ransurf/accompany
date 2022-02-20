@@ -61,7 +61,10 @@ export default function SignUpPage() {
     margin: "20px auto",
   };
 
-  const btnstyle = { margin: "8px 0" };
+  const btnstyle = { 
+    backgroundColor: "#2F374F",
+    margin: "8px 0" 
+  };
   return (
     <Grid>
       <Paper elevation={10} style={paperStyle}>

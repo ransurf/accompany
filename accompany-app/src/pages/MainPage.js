@@ -10,7 +10,8 @@ function MainPage() {
 
   useEffect(async () => {
     console.log("MainPage useEffect");
-    setAdvice(await APIFirebase.getAllQuotes());
+    // setAdvice(await APIFirebase.getAllQuotes());
+    setAdvice([])
     console.log("advice =", advice);
   }, []);
 
