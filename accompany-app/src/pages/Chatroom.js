@@ -35,11 +35,16 @@ function Chatroom() {
     e.preventDefault();
 
     const { uid } = auth.currentUser;
+    const name = auth.currentUser.displayName;
+    console.log(name);
+    console.log(auth.currentUser.displayName);
+    console.log(auth.currentUser);
 
     await addDoc(messagesRef, {
       text: formValue,
       createdAt: serverTimestamp(),
       uid: uid,
+      name: name,
     });
 
     setFormValue("");
@@ -67,7 +72,7 @@ function Chatroom() {
 }
 
 function ChatMessage(props) {
-  const { text, uid } = props.message;
+  const { text, uid, name } = props.message;
 
   const messageClass = uid === auth.currentUser.uid ? "sent" : "received";
 
@@ -75,6 +80,8 @@ function ChatMessage(props) {
     <div className={`message ${messageClass}`}>
       <img src="https://picsum.photos/200/300" />
       <p>{text}</p>
+      <p>-</p>
+      <p>{name}</p>
     </div>
   );
 }
