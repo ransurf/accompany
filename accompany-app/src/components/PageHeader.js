@@ -10,14 +10,6 @@ import { signOut } from "../back-end/functions.js";
 import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 import ChatroomApp from "../pages/Chatroom";
 
-import {
-    BrowserRouter as Router,
-    Route,
-    Routes,
-    Link
-  } from "react-router-dom";
-  
-
 function PageHeader() {
     const [user] = useAuthState(auth);
     return (
